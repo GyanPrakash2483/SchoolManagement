@@ -1,5 +1,5 @@
 import express from "express";
-import { addSchool } from "./controllers.js";
+import { addSchool, listSchools } from "./controllers.js";
 
 
 const app = express();
@@ -10,7 +10,8 @@ app.get('/', (req, res) => {
   res.send("Hello, World!");
 })
 
-app.post('/addSchool', addSchool)
+app.post('/addSchool', addSchool);
+app.get('/listSchools', listSchools);
 
 app.listen(8080, () => {
   console.log("[+] http://localhost:8080");

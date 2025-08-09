@@ -1,5 +1,6 @@
 import mysql from "mysql2";
 import dotenv from "dotenv";
+import "./types.js"
 
 dotenv.config();
 
@@ -33,11 +34,12 @@ connection.query(
 /**
  * Adds a school's information to database.
  * Expect's validated inputs
+ * Throws error when fails
  * 
- * @param {String} name - Name of the school
- * @param {String} address - Address of the school
- * @param {Number} latitude - Latitude of school's location
- * @param {Number} longitude - Longitude of school's location
+ * @param {string} name - Name of the school
+ * @param {string} address - Address of the school
+ * @param {number} latitude - Latitude of school's location
+ * @param {number} longitude - Longitude of school's location
  */
 const addSchool = (name, address, latitude, longitude) => {
   connection.query(
@@ -53,8 +55,25 @@ const addSchool = (name, address, latitude, longitude) => {
   )
 }
 
+/**
+ * Returns all schools stored in database
+ * @returns {Promise<School[]>}
+ */
+const getSchools = () => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      "SELECT * from schools",
+      (err, results) => {
+        if(err) return reject(err);
+        resolve(results);
+      }
+    )
+  })
+}
+
 const db = {
-  addSchool
+  addSchool,
+  getSchools
 }
 
 export default db;
