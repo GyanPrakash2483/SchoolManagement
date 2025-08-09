@@ -1,0 +1,2 @@
+- Used JSDoc for documentation.
+- Home page for more information
