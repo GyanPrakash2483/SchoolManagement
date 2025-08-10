@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Management API</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; background: #f9f9f9; color: #222; }
+    pre { background: #eee; padding: 1em; border-radius: 5px; overflow-x: auto; }
+    code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    h1, h2, h3 { color: #2c3e50; }
+    a { color: #0074d9; }
+    ul { margin-bottom: 1.5em; }
+  </style>
+</head>
+<body>
+  <h1>School Management API</h1>
+  <p>A minimal RESTful API for managing a list of schools, built with Node.js and Express. Supports adding schools, listing all schools sorted by distance, and clearing all records.</p>
+  
+  <p style="margin-bottom:1.5em;"><a href="https://github.com/GyanPrakash2483/SchoolManagement" target="_blank" style="font-size:1.1em;font-weight:bold;">GitHub: GyanPrakash2483/SchoolManagement</a></p>
+  
+  <h2>Features</h2>
+  <ul>
+    <li>Add a new school with name, address, latitude, and longitude</li>
+    <li>List all schools, sorted by distance from a given location</li>
+    <li>Delete all school records</li>
+    <li>Built with Node.js, Express, and MySQL</li>
+  </ul>
+
+  <h2>API Documentation</h2>
+  <ul>
+    <li><strong>Postman Collection:</strong> <a href="https://www.postman.com/research-physicist-55455105/schoolmanagement/collection/009r21u/school-management-api?action=share&creator=46705676" target="_blank">School Management API Collection</a></li>
+    <li><strong>Live API:</strong> <a href="https://schoolmanagement-production-2963.up.railway.app/" target="_blank">https://schoolmanagement-production-2963.up.railway.app/</a></li>
+  </ul>
+  <p>You can import the Postman collection to explore and test all available endpoints.</p>
+
+  <h3>Endpoints</h3>
+  <ul>
+    <li><code>POST /addSchool</code> — Add a new school (JSON body: name, address, latitude, longitude)</li>
+    <li><code>GET /listSchools?latitude=...&amp;longitude=...</code> — List all schools, sorted by distance from the given coordinates</li>
+    <li><code>DELETE /clearRecords</code> — Delete all schools from the database</li>
+  </ul>
+</body>
+</html>

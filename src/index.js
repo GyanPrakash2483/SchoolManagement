@@ -1,13 +1,17 @@
 import express from "express";
 import { addSchool, listSchools, clearRecords } from "./controllers.js";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
 
 const app = express();
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  //TODO: Documentation site
-  res.send("Hello, World!");
+app.get('/', (_, res) => {
+  const fileName = fileURLToPath(import.meta.url);
+  const dirName = dirname(fileName);
+
+  res.sendFile(`${dirName}/view/index.html`);
 })
 
 app.post('/addSchool', addSchool);
