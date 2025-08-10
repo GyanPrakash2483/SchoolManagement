@@ -71,9 +71,25 @@ const getSchools = () => {
   })
 }
 
+/**
+ * Deletes all schools stored in the database
+ */
+const clearRecords = () => {
+  connection.query(
+    `
+      DELETE FROM schools
+    `,
+    (err, res) => {
+      if (err) throw err;
+      else console.log(res);
+    }
+  );
+}
+
 const db = {
   addSchool,
-  getSchools
+  getSchools,
+  clearRecords
 }
 
 export default db;

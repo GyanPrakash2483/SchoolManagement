@@ -105,3 +105,13 @@ export const listSchools = async (req, res) => {
   });
 
 }
+
+export const clearRecords = (req, res) => {
+  try {
+    db.clearRecords()
+  } catch(err) {
+    return res.status(500).json({error: "Internal Server Error"});
+  }
+
+  return res.status(200).json({message: "All schools have been deleted successfully"});
+}
